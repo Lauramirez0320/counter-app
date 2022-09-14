@@ -18,17 +18,13 @@ const reducer = (state, action) => {
   }
 };
 
-const CounterApp = () => {
+export const CounterApp = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
     <>
       <h1>CounterApp</h1>
-      <h2>{state.counter}</h2>
-      <button
-        onClick={() => {
-          dispatch({ type: "INCREASE" });
-        }}
-      >
+      <h2 role="counter">{state.counter}</h2>
+      <button data-testid = "increase-button" onClick={() => { dispatch({ type: "INCREASE" })}}>
         +1
       </button>
       <button
@@ -52,5 +48,3 @@ const CounterApp = () => {
 CounterApp.prototype = {
   value: Proptypes.number,
 };
-
-export default CounterApp;
